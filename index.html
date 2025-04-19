@@ -9,9 +9,10 @@
                 text-align: center;
             }
             .regions {
-                background-color: beige;
+                background-color: lightblue;
                 width: 50%;
                 text-align: center;
+                position: relative;
             }
 
             #diagram {
@@ -26,6 +27,14 @@
                 width: 1px;
                 border: 5px dotted brown;
             }
+
+            .circles {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50px;
+                background-color: rgb(69, 69, 255);
+            }
         </style>
     </head>
     <body>
@@ -34,9 +43,30 @@
         <p>Interact directly with the osmosis process</p>
 
         <div id="diagram">
-            <div class="regions">region 1</div>
+            <div class="regions" id="region1">region 1</div>
             <div id="membrane"></div>
-            <div class="regions">region 2</div>
+            <div class="regions" id="region2">region 2</div>
         </div>
+        
+        <script>
+            function createMolecule() {
+                let newMolecule = document.createElement('div');
+                newMolecule.classList.add('circles');
+
+                let randomY = Math.random() * 390;
+                let randomX = Math.random() * 600;
+
+                newMolecule.style.top = `${randomY}px`;
+                newMolecule.style.left = `${randomX}px`;
+                
+                return newMolecule
+            }
+
+            let region1 = document.getElementById('region1')
+
+            for (let i = 0; i < 20; i++){
+                region1.appendChild(createMolecule())
+            }
+        </script>
     </body>
 </html>
