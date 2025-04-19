@@ -6,3 +6,4 @@ Learn and interact with a web site that demonstrates the concept of **osmosis**,
 # Tools used
 - HTML
 - CSS
+- Javascript
